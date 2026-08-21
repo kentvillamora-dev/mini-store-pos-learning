@@ -34,11 +34,11 @@ Routine learning code should be written and understood by the developer. Assista
 
 The application has three primary areas:
 
-1. **Sales**
-2. **Procurement**
-3. **Inventory**
+1. **Sales** — transacting sales
+2. **Inventory** — receiving and updating stock (locally, "procurement")
+3. **Records** — ledger of sales and inventory transactions
 
-The professional three-tab application shell is the starting interface. Product Master Management inside Inventory is the first business workflow.
+The professional three-tab application shell is the starting interface. Product Master Management — listing the store's initial sellable products — inside the Inventory tab is the first business workflow.
 
 A Product describes what the store sells. It is distinct from the quantity currently in stock. Later workflows such as Procurement, Sales, Refunds, Voids, and Inventory Adjustments should explain why stock changes.
 
