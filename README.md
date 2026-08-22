@@ -2,47 +2,74 @@
 
 A from-scratch learning project for developing the skills needed to design, build, validate, deploy, and present professional business-process web applications.
 
-This repository is intentionally separate from the existing production Mini-Store POS. The production application and the reference product specification may inform business requirements, operating constraints, architectural lessons, and quality expectations, but production source code must not be copied or reconstructed in this project.
+This repository is intentionally separate from the existing production Mini-Store POS. The earlier application may provide real-world context, operating lessons, and examples of problems that had to be solved, but its source code, architecture, workflows, data model, and business logic are **not** implementation requirements for this project.
 
 ## Purpose
 
-The immediate goal is to rebuild the capabilities of a practical Mini-Store POS while learning the syntax, semantics, tools, architecture, and decision-making involved in modern web development.
+The primary goal is to **learn how to build** a modern business-process web application.
 
-The goal is not line-for-line reproduction of an existing application. Each capability should be reconstructed independently in small vertical slices so the developer understands why the implementation works and can transfer the same methods to other business applications.
+The Mini-Store POS provides a practical problem domain in which to learn HTML, CSS, React, TypeScript, data persistence, offline behavior, testing, deployment, Git, and architectural decision-making. The project should evolve as understanding improves.
+
+The objective is therefore not to reproduce the existing Mini-Store POS feature-for-feature or line-for-line. A different structure, workflow, data model, or technical solution is acceptable — and often desirable — when it results from deliberate learning and can be explained and verified.
 
 The broader goal is to develop a repeatable approach for creating MVPs that solve real business and workflow problems, including inventory systems, audit trackers, appointment tools, job-order systems, customer follow-up applications, training records, approval workflows, and operational dashboards.
 
-## Reference Product Context
+## Durable Project Constraints
 
-The application being used as the learning target is a low-cost, offline-first Progressive Web App for a small family-operated mini-store in the Davao Region, Philippines.
+Although the implementation is intentionally open-ended, the learning project should remain grounded in the real operating environment for which the application is intended.
 
-Its operating environment shapes the design:
+### User demographic
 
-- one dedicated Android tablet is the normal POS terminal;
-- an HONOR Pad X8a-class device, approximately 11 inches with 4 GB RAM / 128 GB storage and Wi-Fi, is the hardware benchmark;
-- landscape/tablet use is the primary layout target;
-- primary users may be 50+ and should not need technical knowledge;
-- internet connectivity may be intermittent;
-- normal selling and inventory work must remain possible without internet access;
-- no receipt printer is required for the initial product;
-- recurring operating cost should remain as close to zero as practical; and
-- the interface should favor touch, legibility, obvious transaction state, few decisions per step, and minimal repetitive entry.
+The application is intended for a small family-operated mini-store in the Davao Region, Philippines. Primary users may be **50 years old or older**, may not be technically inclined, and should not need software training to complete routine store tasks.
 
-The defining architectural principle is that the store must remain operational without internet access. Local IndexedDB data is therefore the operational source of truth. Cloud services are secondary synchronization, reporting, and recovery infrastructure rather than a dependency for normal transactions.
+This means interface decisions should favor:
 
-Detailed product behavior, architecture, business rules, rebuild phases, acceptance criteria, non-goals, and unresolved decisions are maintained in [`docs/PRODUCT_SPEC.md`](docs/PRODUCT_SPEC.md).
+- clear wording;
+- large and dependable touch targets;
+- readable typography and values;
+- obvious transaction state;
+- few decisions per step;
+- minimal repetitive data entry;
+- predictable placement of common actions; and
+- low cognitive load over feature density.
+
+### Hardware benchmark
+
+The normal operating terminal is one dedicated Android tablet. The hardware benchmark is an **HONOR Pad X8a-class tablet**, approximately:
+
+```text
+11-inch display
+4 GB RAM
+128 GB storage
+Wi-Fi
+```
+
+Landscape/tablet use is the primary design target.
+
+The application should therefore be designed and tested first for realistic tablet constraints rather than assuming desktop-class hardware, a keyboard/mouse workflow, or unlimited screen space and resources.
+
+### Operating environment
+
+The store may have intermittent internet connectivity. The application should remain practical for day-to-day store operation during connectivity interruptions.
+
+Recurring operating cost should remain as close to zero as practical, and the project should avoid infrastructure or services whose cost and complexity are not justified by a demonstrated need.
+
+No receipt printer, multi-branch operation, or enterprise staff-management system should be assumed unless a future learning milestone establishes a genuine requirement.
+
+More detailed background from the earlier application is retained only as **reference context** in [`docs/REFERENCE_CONTEXT.md`](docs/REFERENCE_CONTEXT.md). It is not a specification for what this learning project must become.
 
 ## Learning Approach
 
-This project uses a top-down, vertical-slice approach:
+This project uses a top-down, practical, vertical-slice approach:
 
-1. Start with a recognizable business application.
-2. Identify the next useful workflow.
-3. Learn the concepts required to make that workflow work.
-4. Implement it in small, understandable steps.
-5. Verify the visible behavior and technical result.
-6. Commit the completed learning milestone.
-7. Reflect on how the same pattern applies elsewhere.
+1. Start with a recognizable business need.
+2. Decide the smallest useful behavior to build next.
+3. Identify the concepts required to make it work.
+4. Learn those concepts at the point they become useful.
+5. Implement the behavior in small, understandable steps.
+6. Verify both visible behavior and technical results.
+7. Commit the completed learning milestone.
+8. Reflect on what the same concept would look like in another application.
 
 The developer should be able to explain why each committed line exists at a level appropriate to the current learning stage.
 
@@ -50,58 +77,33 @@ The developer should be able to explain why each committed line exists at a leve
 
 AI should primarily act as a requirements challenger, tutor, source of progressively stronger hints, debugging partner, code reviewer, test-case generator, and security or data-integrity reviewer.
 
-Routine learning code should be written and understood by the developer. Assistance should normally progress from conceptual hints to focused examples before a complete solution is provided.
+Routine learning code should be written and understood by the developer. Assistance should normally progress from conceptual hints to pseudocode and focused examples before a complete solution is provided.
 
-The reference product specification is a requirements and architecture guide, not permission for AI to generate the entire application. AI must not retrieve, copy, or reconstruct implementation code from the separate production POS repository.
+AI must not retrieve, copy, or reconstruct implementation code from the separate production Mini-Store POS repository.
 
-## Application Scope
+When earlier-product behavior is discussed, treat it as a case study: ask what problem it solved, whether the same requirement still exists, and whether a simpler or clearer solution can be built from first principles.
 
-The application has exactly three primary areas:
+## Current Application Direction
 
-1. **Sales** — product selection, cart management, and sales transactions.
-2. **Inventory** — product and supplier master data, receiving stock, opening inventory, procurement, pricing, and inventory controls.
-3. **Records** — durable records and ledgers for sales, inventory, procurement, products, suppliers, and related operational history.
+The current learning application uses a professional three-tab shell:
 
-The professional three-tab application shell is the starting interface. Product Master Management — creating and maintaining the store's sellable product catalog — inside the Inventory tab is the first business workflow.
+1. **Sales**
+2. **Inventory**
+3. **Records**
 
-A Product describes what the store sells. It is distinct from the quantity currently in stock. Stock changes should ultimately be explainable through durable business transactions and inventory movements rather than unexplained edits to a quantity field.
+This reflects the application's present learning state, not an immutable product specification. Navigation, workflows, terminology, and business rules may be revised when the learning process produces a better-supported design.
 
-Later vertical slices introduce procurement, opening inventory, sales, voids/refunds, inventory reconciliation, pricing, offline PWA behavior, and non-blocking synchronization. These capabilities should be introduced only when the active learning milestone reaches them.
+The first business workflow is Product Master Management inside the Inventory area: creating and maintaining the store's sellable product catalog.
 
-## Product Principles
+## Design Principle
 
-The reference application is governed by a small set of durable principles:
+Professional presentation is part of the application shell, not a final cosmetic step.
 
-- **Offline first.** Core business workflows must not require a network connection.
-- **Local data is operationally authoritative.** IndexedDB/Dexie is the live transaction store.
-- **No silent data loss.** Durable business records should be preserved and reversed or voided where appropriate rather than casually deleted.
-- **Stock changes must be explainable.** Inventory movements form the audit trail; cached stock is an operational convenience.
-- **Transactions should be atomic.** Related records and stock changes should succeed or fail together.
-- **Simple beats clever.** The application serves a family mini-store, not an enterprise ERP.
-- **Tablet-first UX.** Touch targets, typography, layout, and workflows should suit the benchmark tablet and its users.
-- **Exactly three top-level tabs.** Sales, Inventory, and Records remain the stable navigation model.
-- **Restrained professional styling.** Avoid bright-blue-heavy treatment; favor clear hierarchy, legibility, and deliberate use of accent color.
-- **Low recurring cost matters.** Added infrastructure must justify its operational cost and complexity.
+Global styling should remain coherent as features are learned and added. The interface should be tablet-first, restrained, highly legible, and suitable for older/nontechnical users. Avoid visually noisy or bright-blue-heavy treatment that competes with operational information.
 
-## Rebuild Boundary
+## Technology Direction
 
-This repository rebuilds **capabilities and understanding**, not production source code.
-
-When a workflow from the reference product is reached:
-
-1. understand the operating problem and business rule;
-2. define the smallest useful data and UI contract;
-3. learn the concepts required to implement it;
-4. implement the smallest independent vertical slice;
-5. build and test it;
-6. inspect the resulting behavior and persisted data where applicable; and
-7. continue only after the developer can explain the important implementation choices.
-
-Do not silently invent unresolved business rules. Record decisions explicitly when reconstruction reaches them.
-
-## Target Technology Stack
-
-The stack below describes the intended architecture. Technologies should be introduced only when the active milestone creates a practical need for them.
+The technologies below represent the current intended learning stack. They should be introduced when a practical milestone creates the need for them rather than all at once.
 
 ### Client / User Interface
 
@@ -112,79 +114,26 @@ React
 TypeScript
 ~~~
 
-Responsibilities include application structure, accessibility, professional tablet-first presentation, navigation, interaction, forms, validation feedback, and temporary interface state.
-
-### Application Framework
-
-~~~text
-React
-~~~
-
-React organizes the interface into components and derives the visible screen from application state.
-
-### Business Logic
-
-~~~text
-TypeScript services
-Dexie transactions for persistent local operations
-~~~
-
-Core selling, procurement, and inventory rules remain local-first and must not depend on network availability.
-
-### Backend / API
-
-~~~text
-Google Apps Script HTTP endpoint for synchronization only
-~~~
-
-No backend is required for core POS transactions. Google Apps Script is introduced later as a non-blocking synchronization endpoint.
-
-### Authentication and Authorization
-
-~~~text
-Not required for the initial single-device family-operated application
-~~~
-
-Authentication or roles should not be added without a new operating requirement.
-
-### Operational Database
-
-~~~text
-IndexedDB through Dexie
-~~~
-
-IndexedDB is the local operational source of truth. Dexie provides the application-facing database and transaction layer.
-
-### Local Storage and Offline Capability
+### Local data and offline capability
 
 ~~~text
 IndexedDB
-PWA application-shell caching
-Service worker
+Dexie
+PWA / service worker
 ~~~
 
-Core workflows must remain usable without internet access.
+The exact data model and persistence architecture should be designed during the relevant learning milestones rather than copied from the earlier application.
 
-### Synchronization
-
-~~~text
-Persistent local synchronization queue
-Non-blocking batch synchronization
-Explicit acknowledgement before queue removal
-~~~
-
-Network failure must not roll back or invalidate a successful local business transaction.
-
-### External Integrations
+### Optional synchronization / reporting direction
 
 ~~~text
 Google Apps Script
 Google Sheets
 ~~~
 
-Google Sheets is intended for reporting, historical replication, and potential recovery support. It is not the operational POS database.
+These are candidate low-cost tools based on the operating context. Their exact role should be justified when synchronization or reporting becomes an active learning problem.
 
-### Build and Package Tooling
+### Build and development tooling
 
 ~~~text
 Vite
@@ -193,43 +142,16 @@ TypeScript compiler
 ESLint
 ~~~
 
-Vite provides the development server and production build. npm manages project packages and scripts. TypeScript checks data and code contracts. ESLint identifies problematic source-code patterns.
-
-### Hosting and Runtime
+### Hosting and version control
 
 ~~~text
-GitHub Pages — static application hosting
-Browser/PWA — operational runtime
-Google Apps Script — synchronization runtime
-~~~
-
-### Deployment and CI/CD
-
-~~~text
+Git
+GitHub
 GitHub Actions
+GitHub Pages
 ~~~
 
-Deployment automation should build and verify the application before publishing it to GitHub Pages.
-
-### Testing and Quality
-
-~~~text
-TypeScript
-ESLint
-Manual workflow verification
-Automated tests introduced when business rules require them
-~~~
-
-### Version Control and Repository
-
-~~~text
-Git — version-control system
-GitHub — remote repository and collaboration platform
-~~~
-
-GitHub is the durable source of truth. Local development environments are working copies.
-
-### Development Environment
+### Development environment
 
 ~~~text
 Samsung Android tablet
@@ -255,25 +177,20 @@ GitHub Codespaces may be used as a backup development environment.
 
 ## Documentation and Continuity Model
 
-This README is a **static project-orientation document**. It describes the project purpose, learning rules, reference operating context, intended scope, target stack, and session-grounding procedure.
+This README is a **static project-orientation document**. It describes the learning purpose, durable operating constraints, current technology direction, Git principles, and session-grounding procedure.
 
-Do not use this README as a development-progress log or as the detailed product specification.
+Do not use this README as a development-progress log.
 
-Permanent product and architecture documentation belongs under:
+Permanent documentation under `docs/` should capture only information that genuinely needs to persist across sessions, such as:
 
-~~~text
-docs/
-~~~
+- operating and user constraints;
+- learning/documentation rules;
+- architectural decisions made during this learning project; and
+- reference context that may help explain why a problem matters.
 
-The principal reference is:
+Reference material from the previous Mini-Store POS must be clearly labeled as **context, not requirements**.
 
-~~~text
-docs/PRODUCT_SPEC.md
-~~~
-
-It records stable product requirements, business rules, architecture, rebuild phases, acceptance criteria, non-goals, and unresolved decisions. Permanent documentation should be updated when a stable project decision changes, not merely to record routine progress.
-
-Development progress belongs in chronological checkpoint documents stored under:
+Development progress belongs in chronological checkpoint documents under:
 
 ~~~text
 docs/checkpoints/
@@ -283,19 +200,23 @@ Checkpoint documents should record what was implemented, what was verified, curr
 
 Create a new checkpoint rather than overwriting an earlier checkpoint. Checkpoint descriptions are historical reference only; current repository code remains authoritative.
 
+See [`docs/DOCUMENTATION_GUIDE.md`](docs/DOCUMENTATION_GUIDE.md) for the documentation maintenance rules.
+
 ## Source-of-Truth Order
 
-When sources disagree, use this priority:
+For **what has actually been built**, use this priority:
 
-1. current repository code for what is actually implemented;
-2. permanent repository documentation for intended product behavior and stable decisions;
-3. latest applicable checkpoint for development state and resume point;
+1. current repository code;
+2. current learning-project documentation and explicit decisions;
+3. latest applicable checkpoint;
 4. Git history; and
 5. AI conversation history.
 
-Conversation memory must never override the repository.
+Earlier production-app behavior is not a source of truth for the learning implementation.
 
-A difference between live code and the product specification is not automatically an error: the learning project may simply not have reached that capability yet. When implemented behavior intentionally changes a stable product rule, reconcile the permanent documentation explicitly.
+The most important distinction is:
+
+> **Operating constraints define the problem. The learning process defines the solution.**
 
 ## New-Session Grounding Prompt
 
@@ -308,7 +229,13 @@ Repository:
 kentvillamora-dev/mini-store-pos-learning
 
 This is a from-scratch learning project. Do not copy or reconstruct source
-code from my separate production Mini-Store POS repository.
+code, architecture, workflows, or business logic from my separate production
+Mini-Store POS repository.
+
+The durable constraints are the operating environment, hardware benchmark,
+and user demographic documented in this repository. The implementation may
+evolve as I learn; the goal is to learn how to build, not reproduce the old
+application exactly.
 
 Before giving development instructions or proposing code changes, ground
 yourself in the current GitHub repository.
@@ -329,10 +256,10 @@ Please follow this startup procedure:
 5. Inspect the actual current source files relevant to that next action.
 6. Reconcile the checkpoint and documentation against the live code. The
    repository code is authoritative for what is currently implemented.
-7. Treat permanent product documentation as requirements context, not as
-   permission to copy or reconstruct production source code.
-8. Do not reconstruct source code from conversation memory, historical
-   snippets, checkpoint examples, or the separate production POS.
+7. Treat documentation about the previous Mini-Store POS only as reference
+   context unless this learning repository explicitly adopts a decision.
+8. Do not reconstruct source code or implementation decisions from
+   conversation memory, historical snippets, or the production POS.
 9. Do not make any code changes yet.
 
 After completing the review, provide a concise Session Grounding Report
@@ -358,6 +285,8 @@ Learning rules:
   result, and how to verify success.
 - Preserve professional global styling as part of the application shell.
 - Keep the implementation independent from the production POS codebase.
+- Challenge inherited assumptions when a simpler or clearer solution may be
+  better for learning or for the actual users.
 - Include clear verification instructions for every meaningful step.
 - Use Git deliberately: inspect, verify, stage intentionally, review, commit,
   push, and confirm local/remote integrity.
@@ -368,4 +297,4 @@ with the next development step.
 
 ## Guiding Principle
 
-> Build a credible solution to an immediate workflow need, understand each layer required to make it work, and carry the resulting method into other business applications.
+> Learn to solve the real user's problem from first principles; do not merely reproduce yesterday's solution.
