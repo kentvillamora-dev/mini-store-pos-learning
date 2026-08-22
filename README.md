@@ -2,13 +2,35 @@
 
 A from-scratch learning project for developing the skills needed to design, build, validate, deploy, and present professional business-process web applications.
 
-This repository is intentionally separate from the existing production Mini-Store POS. The production application may inform business requirements, operational lessons, and quality expectations, but its source code must not be copied into this project.
+This repository is intentionally separate from the existing production Mini-Store POS. The production application and the reference product specification may inform business requirements, operating constraints, architectural lessons, and quality expectations, but production source code must not be copied or reconstructed in this project.
 
 ## Purpose
 
-The immediate goal is to build a Mini-Store POS application while learning the syntax, semantics, tools, and decision-making involved in modern web development.
+The immediate goal is to rebuild the capabilities of a practical Mini-Store POS while learning the syntax, semantics, tools, architecture, and decision-making involved in modern web development.
+
+The goal is not line-for-line reproduction of an existing application. Each capability should be reconstructed independently in small vertical slices so the developer understands why the implementation works and can transfer the same methods to other business applications.
 
 The broader goal is to develop a repeatable approach for creating MVPs that solve real business and workflow problems, including inventory systems, audit trackers, appointment tools, job-order systems, customer follow-up applications, training records, approval workflows, and operational dashboards.
+
+## Reference Product Context
+
+The application being used as the learning target is a low-cost, offline-first Progressive Web App for a small family-operated mini-store in the Davao Region, Philippines.
+
+Its operating environment shapes the design:
+
+- one dedicated Android tablet is the normal POS terminal;
+- an HONOR Pad X8a-class device, approximately 11 inches with 4 GB RAM / 128 GB storage and Wi-Fi, is the hardware benchmark;
+- landscape/tablet use is the primary layout target;
+- primary users may be 50+ and should not need technical knowledge;
+- internet connectivity may be intermittent;
+- normal selling and inventory work must remain possible without internet access;
+- no receipt printer is required for the initial product;
+- recurring operating cost should remain as close to zero as practical; and
+- the interface should favor touch, legibility, obvious transaction state, few decisions per step, and minimal repetitive entry.
+
+The defining architectural principle is that the store must remain operational without internet access. Local IndexedDB data is therefore the operational source of truth. Cloud services are secondary synchronization, reporting, and recovery infrastructure rather than a dependency for normal transactions.
+
+Detailed product behavior, architecture, business rules, rebuild phases, acceptance criteria, non-goals, and unresolved decisions are maintained in [`docs/PRODUCT_SPEC.md`](docs/PRODUCT_SPEC.md).
 
 ## Learning Approach
 
@@ -30,17 +52,52 @@ AI should primarily act as a requirements challenger, tutor, source of progressi
 
 Routine learning code should be written and understood by the developer. Assistance should normally progress from conceptual hints to focused examples before a complete solution is provided.
 
+The reference product specification is a requirements and architecture guide, not permission for AI to generate the entire application. AI must not retrieve, copy, or reconstruct implementation code from the separate production POS repository.
+
 ## Application Scope
 
-The application has three primary areas:
+The application has exactly three primary areas:
 
-1. **Sales** — transacting sales
-2. **Inventory** — receiving and updating stock (locally, "procurement")
-3. **Records** — ledger of sales and inventory transactions
+1. **Sales** — product selection, cart management, and sales transactions.
+2. **Inventory** — product and supplier master data, receiving stock, opening inventory, procurement, pricing, and inventory controls.
+3. **Records** — durable records and ledgers for sales, inventory, procurement, products, suppliers, and related operational history.
 
-The professional three-tab application shell is the starting interface. Product Master Management — listing the store's initial sellable products — inside the Inventory tab is the first business workflow.
+The professional three-tab application shell is the starting interface. Product Master Management — creating and maintaining the store's sellable product catalog — inside the Inventory tab is the first business workflow.
 
-A Product describes what the store sells. It is distinct from the quantity currently in stock. Later workflows such as Procurement, Sales, Refunds, Voids, and Inventory Adjustments should explain why stock changes.
+A Product describes what the store sells. It is distinct from the quantity currently in stock. Stock changes should ultimately be explainable through durable business transactions and inventory movements rather than unexplained edits to a quantity field.
+
+Later vertical slices introduce procurement, opening inventory, sales, voids/refunds, inventory reconciliation, pricing, offline PWA behavior, and non-blocking synchronization. These capabilities should be introduced only when the active learning milestone reaches them.
+
+## Product Principles
+
+The reference application is governed by a small set of durable principles:
+
+- **Offline first.** Core business workflows must not require a network connection.
+- **Local data is operationally authoritative.** IndexedDB/Dexie is the live transaction store.
+- **No silent data loss.** Durable business records should be preserved and reversed or voided where appropriate rather than casually deleted.
+- **Stock changes must be explainable.** Inventory movements form the audit trail; cached stock is an operational convenience.
+- **Transactions should be atomic.** Related records and stock changes should succeed or fail together.
+- **Simple beats clever.** The application serves a family mini-store, not an enterprise ERP.
+- **Tablet-first UX.** Touch targets, typography, layout, and workflows should suit the benchmark tablet and its users.
+- **Exactly three top-level tabs.** Sales, Inventory, and Records remain the stable navigation model.
+- **Restrained professional styling.** Avoid bright-blue-heavy treatment; favor clear hierarchy, legibility, and deliberate use of accent color.
+- **Low recurring cost matters.** Added infrastructure must justify its operational cost and complexity.
+
+## Rebuild Boundary
+
+This repository rebuilds **capabilities and understanding**, not production source code.
+
+When a workflow from the reference product is reached:
+
+1. understand the operating problem and business rule;
+2. define the smallest useful data and UI contract;
+3. learn the concepts required to implement it;
+4. implement the smallest independent vertical slice;
+5. build and test it;
+6. inspect the resulting behavior and persisted data where applicable; and
+7. continue only after the developer can explain the important implementation choices.
+
+Do not silently invent unresolved business rules. Record decisions explicitly when reconstruction reaches them.
 
 ## Target Technology Stack
 
@@ -198,9 +255,23 @@ GitHub Codespaces may be used as a backup development environment.
 
 ## Documentation and Continuity Model
 
-This README is a **static project-orientation document**. It describes the project purpose, learning rules, intended scope, target stack, and session-grounding procedure.
+This README is a **static project-orientation document**. It describes the project purpose, learning rules, reference operating context, intended scope, target stack, and session-grounding procedure.
 
-Do not use this README as a development-progress log.
+Do not use this README as a development-progress log or as the detailed product specification.
+
+Permanent product and architecture documentation belongs under:
+
+~~~text
+docs/
+~~~
+
+The principal reference is:
+
+~~~text
+docs/PRODUCT_SPEC.md
+~~~
+
+It records stable product requirements, business rules, architecture, rebuild phases, acceptance criteria, non-goals, and unresolved decisions. Permanent documentation should be updated when a stable project decision changes, not merely to record routine progress.
 
 Development progress belongs in chronological checkpoint documents stored under:
 
@@ -212,19 +283,19 @@ Checkpoint documents should record what was implemented, what was verified, curr
 
 Create a new checkpoint rather than overwriting an earlier checkpoint. Checkpoint descriptions are historical reference only; current repository code remains authoritative.
 
-Permanent documentation may be added under **docs/** when stable architecture, business rules, database rules, or learning protocols require more detail. Permanent documents should not be rewritten merely to record routine progress.
-
 ## Source-of-Truth Order
 
 When sources disagree, use this priority:
 
-1. current repository code;
-2. permanent repository documentation;
-3. latest applicable checkpoint;
+1. current repository code for what is actually implemented;
+2. permanent repository documentation for intended product behavior and stable decisions;
+3. latest applicable checkpoint for development state and resume point;
 4. Git history; and
 5. AI conversation history.
 
 Conversation memory must never override the repository.
+
+A difference between live code and the product specification is not automatically an error: the learning project may simply not have reached that capability yet. When implemented behavior intentionally changes a stable product rule, reconcile the permanent documentation explicitly.
 
 ## New-Session Grounding Prompt
 
@@ -257,10 +328,12 @@ Please follow this startup procedure:
    - the exact next action.
 5. Inspect the actual current source files relevant to that next action.
 6. Reconcile the checkpoint and documentation against the live code. The
-   repository code is authoritative if there is a discrepancy.
-7. Do not reconstruct source code from conversation memory, historical
+   repository code is authoritative for what is currently implemented.
+7. Treat permanent product documentation as requirements context, not as
+   permission to copy or reconstruct production source code.
+8. Do not reconstruct source code from conversation memory, historical
    snippets, checkpoint examples, or the separate production POS.
-8. Do not make any code changes yet.
+9. Do not make any code changes yet.
 
 After completing the review, provide a concise Session Grounding Report
 containing:
