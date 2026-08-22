@@ -4,41 +4,44 @@
 
 This document defines where project knowledge belongs so the Mini-Store POS Learning Project remains easy to ground, review, and continue across development sessions.
 
+The central documentation rule is:
+
+> **The hardware, user demographic, and operating environment are durable constraints. The application's structure and solution may evolve as learning progresses.**
+
 ## Documentation Layers
 
 ### `README.md` — Project Orientation
 
 Use the README for stable, high-level context:
 
-- project purpose;
+- the primary learning goal;
+- user demographic constraints;
+- hardware benchmark;
+- operating-environment constraints;
 - learning approach;
-- reference operating context;
-- high-level application scope;
-- durable product principles;
-- target technology stack;
+- current technology direction;
 - Git working principles;
 - source-of-truth rules; and
 - the new-session grounding prompt.
 
-Do **not** use the README as a progress log or detailed business-rule catalog.
+Do **not** use the README as a progress log or as a fixed specification of workflows, business logic, or architecture.
 
-### `docs/PRODUCT_SPEC.md` — Product and Architecture Reference
+### `docs/REFERENCE_CONTEXT.md` — Earlier-App Context
 
-Use this document for stable requirements and detailed reference behavior:
+Use this document to preserve useful context from the previous Mini-Store POS.
 
-- operating constraints;
-- product/business rules;
-- data and transaction principles;
-- architecture;
-- synchronization and PWA expectations;
-- rebuild phases;
-- acceptance tests;
-- explicit non-goals; and
-- unresolved product decisions.
+The durable parts are primarily:
 
-Update it when a stable product decision changes or when reconstruction establishes a deliberate learning-project rule that supersedes earlier reference material.
+- intended users;
+- benchmark hardware;
+- store environment;
+- connectivity realities;
+- cost constraints; and
+- examples of real operational problems encountered previously.
 
-A capability appearing in the product specification does not mean it has already been implemented.
+Earlier workflows, feature lists, database structures, business rules, navigation, and architecture are **reference examples only**. They are not requirements for the learning project.
+
+When earlier behavior is relevant, start from the underlying user problem and design a solution from first principles.
 
 ### `docs/checkpoints/` — Development Continuity
 
@@ -61,29 +64,57 @@ Do not overwrite historical checkpoints merely because later work makes them out
 
 ## Source-of-Truth Rules
 
-When reviewing the repository, distinguish **implementation truth** from **requirements truth**.
-
 For what currently exists in the application:
 
 1. current repository code;
-2. current Git state/history;
-3. checkpoint descriptions.
+2. explicit decisions documented in this learning repository;
+3. latest applicable checkpoint;
+4. Git history; and
+5. conversation history.
 
-For what the application is intended eventually to do:
+For design constraints, distinguish between **problem constraints** and **solution choices**.
 
-1. permanent product documentation;
-2. explicit later design decisions recorded in the repository;
-3. historical reference material.
+### Durable problem constraints
 
-If implementation and permanent documentation differ because a feature has not been built yet, record that as development state rather than treating it as a defect.
+Treat these as stable unless the actual operating environment changes:
 
-If implemented behavior intentionally changes a stable requirement, reconcile the permanent documentation explicitly.
+- intended user demographic;
+- benchmark hardware;
+- tablet-first usage;
+- intermittent connectivity;
+- low recurring-cost objective; and
+- real mini-store operating context.
+
+### Evolving solution choices
+
+These may change freely when the learning process supports a better design:
+
+- navigation;
+- workflows;
+- terminology;
+- business rules;
+- data model;
+- database schema;
+- component/service organization;
+- synchronization approach;
+- deployment architecture; and
+- feature scope.
+
+Do not treat a difference from the previous production application as a defect.
 
 ## Learning-Project Boundary
 
-The separate production Mini-Store POS may provide business requirements, operational lessons, and quality expectations. Its source code is not a source for this repository.
+The separate production Mini-Store POS may provide examples of problems, operating lessons, and quality expectations. Its source code and architecture are not sources for this repository.
 
-Do not copy or reconstruct production implementation code. Build each learning-project capability independently using the documented requirements and the concepts being learned.
+Do not copy or reconstruct production implementation code.
+
+When considering a previous solution, ask:
+
+1. What user problem was it solving?
+2. Does that problem still matter here?
+3. What concept do we need to learn to solve it?
+4. Can we design a simpler or clearer solution from first principles?
+5. How will we verify that the result works for the intended users and hardware?
 
 ## Documentation Reconciliation
 
@@ -91,7 +122,10 @@ Before creating a new checkpoint at the end of a meaningful milestone:
 
 1. inspect the live code and Git state;
 2. verify build/lint/tests appropriate to the milestone;
-3. identify whether a stable product or architecture decision changed;
-4. update permanent documentation only if such a stable change occurred;
-5. create a new checkpoint describing actual development state; and
-6. verify the checkpoint and any permanent-document updates are committed and pushed.
+3. identify any new learning-project decisions;
+4. update permanent documentation only if a durable constraint or documentation rule changed;
+5. record evolving implementation/design decisions in the checkpoint when appropriate;
+6. create a new checkpoint describing actual development state; and
+7. verify the checkpoint and any permanent-document updates are committed and pushed.
+
+Avoid turning temporary implementation decisions into permanent requirements prematurely.
