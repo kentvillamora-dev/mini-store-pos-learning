@@ -1,17 +1,4 @@
-html, body, #root {
-  height: 100%;
-  margin: 0;
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
-}
-
 :root {
-  /* Shell */
-  background: var(--color-canvas);
-
   /* Surfaces */
   --color-canvas: #0a2540;
   --color-background: #eef1f5;
@@ -29,6 +16,19 @@ html, body, #root {
 
   /* Effects */
   --color-shadow: rgba(15, 23, 42, 0.08);
+
+  /* Shell */
+  background: var(--color-canvas);
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
 }
 
 nav {
@@ -45,4 +45,8 @@ main {
   flex: 1;
   background: var(--color-background);
   border: 1px solid var(--color-border);
+}
+
+* {
+  outline: 1px solid red;
 }

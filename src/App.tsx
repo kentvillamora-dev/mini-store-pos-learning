@@ -18,6 +18,7 @@ function App() {
         <section>
           This will occupy 1/3 of the parent div
         </section>
+        Outside of 2 sections but inside main
       </main>
     </>
   )
