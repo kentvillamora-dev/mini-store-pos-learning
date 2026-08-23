@@ -7,15 +7,10 @@
 
   /* Accent */
   --color-accent: #1e3a5f;
-  --color-accent-hover: #16293f;
   --color-accent-contrast: #ffffff;
 
   /* Text */
   --color-text: #1f2937;
-  --color-text-muted: #6b7280;
-
-  /* Effects */
-  --color-shadow: rgba(15, 23, 42, 0.08);
 }
 
 html, body, #root {
@@ -39,8 +34,8 @@ body {
 nav {
   display: flex;
   flex-direction: row;
-  gap: 8px;
-  padding: 5px 5px;
+  gap: 1px;
+  padding: 1px 1px;
   background: var(--color-background);
   border: 1px solid var(--color-border);
 }
@@ -49,8 +44,8 @@ nav button {
   flex: 1;
   min-height: 30px;
   
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
+  border: 1px solid transparent;
+  border-radius: 5px;
   background: transparent;
   color: var(--color-text);
   font-weight: 700;
@@ -67,9 +62,3 @@ main {
   background: var(--color-background);
   border: 1px solid var(--color-border);
 }
-
-/*
-* {
-  outline: 1px solid red;
-}
-*/

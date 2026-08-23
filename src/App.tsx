@@ -1,5 +1,4 @@
 import { useState } from 'react'
-//import './App.css'
 
 function App() {
   const [activeTab, setActiveTab] = useState('Sales')
@@ -20,8 +19,8 @@ function App() {
           Inventory
         </button>
         <button
-          onClick={() => setActiveTab('Record')}
-          className={activeTab === 'Record' ? 'active' : ''}
+          onClick={() => setActiveTab('Records')}
+          className={activeTab === 'Records' ? 'active' : ''}
         >
           Records
         </button>
