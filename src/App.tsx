@@ -1,14 +1,30 @@
-//import { useState } from 'react'
+import { useState } from 'react'
 //import './App.css'
 
 function App() {
+  const [activeTab, setActiveTab] = useState('Sales')
 
   return (
     <>
       <nav>
-        <button>Sales</button>
-        <button>Inventory</button>
-        <button>Records</button>
+        <button
+          onClick={() => setActiveTab('Sales')}
+          className={activeTab === 'Sales' ? 'active' : ''}
+        >
+          Sales
+        </button>
+        <button
+          onClick={() => setActiveTab('Inventory')}
+          className={activeTab === 'Inventory' ? 'active' : ''}
+        >
+          Inventory
+        </button>
+        <button
+          onClick={() => setActiveTab('Record')}
+          className={activeTab === 'Record' ? 'active' : ''}
+        >
+          Records
+        </button>
       </nav>
 
       <main>
