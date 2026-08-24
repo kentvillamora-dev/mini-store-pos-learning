@@ -4,7 +4,7 @@ import InventoryView from './features/inventory/InventoryView'
 import RecordsView from './features/records/RecordsView'
 
 function App() {
-  const [activeTab, setActiveTab] = 
+  const [activeTab, setActiveTab] =
     useState<'Sales' | 'Inventory' | 'Records'>('Sales')
 
   return (

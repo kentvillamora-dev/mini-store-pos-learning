@@ -1,12 +1,15 @@
+import InventoryProductTable from './InventoryProductTable'
+
+
 function InventoryView() {
   return (
     <>
       <section>
-        This section will hold Procurement Details
+        <InventoryProductTable />
       </section>
 
       <section>
-        This section will hold the Product List
+        Place holder section area
       </section>
 
       Placeholder text to indicate area outside of sections
