@@ -31,9 +31,9 @@ function App() {
       </nav>
 
       <main>
-        {activeTab === 'Sales' && <SalesView/>}
-        {activeTab === 'Inventory' && <InventoryView/>}
-        {activeTab === 'Records' && <RecordsView/>}
+        {activeTab === 'Sales' && <SalesView />}
+        {activeTab === 'Inventory' && <InventoryView />}
+        {activeTab === 'Records' && <RecordsView />}
       </main>
     </>
   )
