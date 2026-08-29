@@ -16,12 +16,14 @@ function App() {
         >
           Sales
         </button>
+
         <button
           onClick={() => setActiveTab('Inventory')}
           className={activeTab === 'Inventory' ? 'active' : ''}
         >
           Inventory
         </button>
+        
         <button
           onClick={() => setActiveTab('Records')}
           className={activeTab === 'Records' ? 'active' : ''}

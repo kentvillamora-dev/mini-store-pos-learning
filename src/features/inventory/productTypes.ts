@@ -1,13 +1,17 @@
+export const productCategories = [
+  'Snacks',
+  'Beverages',
+  'Coffee & Milk',
+  'Instant Noodles',
+  'Canned Goods',
+  'Cooking Essentials',
+  'Household Cleaning',
+  'Personal Care',
+  'Miscellaneous'
+] as const
+
 export type ProductCategory =
-  | 'Snacks'
-  | 'Beverages'
-  | 'Coffee & Milk'
-  | 'Instant Noodles'
-  | 'Canned Goods'
-  | 'Cooking Essentials'
-  | 'Household Cleaning'
-  | 'Personal Care'
-  | 'Miscellaneous'
+  typeof productCategories[number]
 
 export type ProductSubCategory =
   | 'Candies'
@@ -47,4 +51,9 @@ export type ProductSubCategory =
   | 'Other Care Items'
   | 'Cigarettes'
   | 'Other Items'
-  
+
+export type Product = {
+  name: string,
+  category: ProductCategory,
+  subcategory: ProductSubCategory
+}
