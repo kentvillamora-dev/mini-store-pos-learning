@@ -1,6 +1,6 @@
-import type { Product } from './productTypes'
+import type { AnyProduct } from './productTypes'
 
-export const defaultProducts: Product[] = [
+export const defaultProducts: AnyProduct[] = [
   {
     name: 'Coke 1L',
     category: 'Beverages',
@@ -58,6 +58,6 @@ export const defaultProducts: Product[] = [
   {
     name: 'Nescafe 3n1 Creamy White',
     category: 'Coffee & Milk',
-    subcategory: 'Coffee'
+    subcategory: 'Milk'
   }
 ]

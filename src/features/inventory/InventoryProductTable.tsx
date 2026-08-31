@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { productCategories } from './productTypes'
+import { productGroups } from './productTypes'
 import { defaultProducts } from './defaultProducts'
 
 function InventoryProductTable() {
@@ -16,7 +16,7 @@ function InventoryProductTable() {
       </thead>
 
       <tbody>
-        {productCategories.map((category) => (
+        {Object.keys(productGroups).map((category) => (
           <Fragment key={category}>
             <tr>
               <td colSpan={5}>{category}</td>
