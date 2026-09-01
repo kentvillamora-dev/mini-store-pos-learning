@@ -5,7 +5,7 @@ import InventoryProductTable from './InventoryProductTable'
 function InventoryView() {
   return (
     <>
-      <section>
+      <section className='inventory-section'>
         <InventoryProductTable />
       </section>
     </>

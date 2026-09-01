@@ -1,3 +1,10 @@
+.invetory-section {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .inventory-category-controls {
   display: flex;
   gap: 1px;
@@ -32,5 +39,7 @@
 }
 
 .inventory-product-table-container {
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
 }
