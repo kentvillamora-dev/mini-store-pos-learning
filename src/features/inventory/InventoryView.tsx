@@ -8,10 +8,6 @@ function InventoryView() {
       <section>
         <InventoryProductTable />
       </section>
-
-      <section>
-        Place holder section area
-      </section>
     </>
   )
 }

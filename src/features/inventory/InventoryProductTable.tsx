@@ -8,7 +8,7 @@ function InventoryProductTable() {
 
   return (
     <>
-      <div className="inventory-category-controls">
+      <div className='inventory-category-controls'>
         <button
           className={`inventory-category-button
             ${selectedCategory === 'All Categories' ? ' active' : ''}`}
@@ -29,54 +29,56 @@ function InventoryProductTable() {
         ))}
 
         <input
-          className="inventory-search"
-          type="search"
-          placeholder="Search..."
+          className='inventory-search'
+          type='search'
+          placeholder='Search...'
         />
       </div>
 
-      <table className="inventory-product-table">
-        <thead>
-          <tr>
-            <th scope="col">Products</th>
-            <th scope="col">Stock</th>
-            <th scope="col">Unit Cost</th>
-            <th scope="col">SRP</th>
-            <th scope="col">Sell Price</th>
-          </tr>
-        </thead>
+      <div className='inventory-product-table-container'>
+        <table className='inventory-product-table'>
+          <thead>
+            <tr>
+              <th scope='col'>Products</th>
+              <th scope='col'>Stock</th>
+              <th scope='col'>Unit Cost</th>
+              <th scope='col'>SRP</th>
+              <th scope='col'>Sell Price</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          {Object.keys(productGroups)
-            .filter(
-              (category) =>
-                selectedCategory === 'All Categories' ||
-                category === selectedCategory
-            )
-            .map((category) => (
-              <Fragment key={category}>
-                <tr className="inventory-category-row">
-                  <td colSpan={5}>{category}</td>
-                </tr>
+          <tbody>
+            {Object.keys(productGroups)
+              .filter(
+                (category) =>
+                  selectedCategory === 'All Categories' ||
+                  category === selectedCategory
+              )
+              .map((category) => (
+                <Fragment key={category}>
+                  <tr className='inventory-category-row'>
+                    <td colSpan={5}>{category}</td>
+                  </tr>
 
-                {defaultProducts
-                  .filter((product) => product.category === category)
-                  .map((product) => (
-                    <tr
-                      key={product.name}
-                      className="inventory-product-row"
-                    >
-                      <td>{product.name}</td>
-                      <td>0</td>
-                      <td>0</td>
-                      <td>0</td>
-                      <td>0</td>
-                    </tr>
-                  ))}
-              </Fragment>
-            ))}
-        </tbody>
-      </table>
+                  {defaultProducts
+                    .filter((product) => product.category === category)
+                    .map((product) => (
+                      <tr
+                        key={product.name}
+                        className='inventory-product-row'
+                      >
+                        <td>{product.name}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                      </tr>
+                    ))}
+                </Fragment>
+              ))}
+          </tbody>
+        </table>
+      </div>
     </>
   )
 }

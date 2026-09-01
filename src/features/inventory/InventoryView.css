@@ -12,7 +12,13 @@
   border-radius: 10px;
   background: var(--color-background);
   color: var(--color-text);
+  font-weight: 500;
+}
+
+.inventory-category-button.active {
   font-weight: 600;
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
 }
 
 .inventory-search {
@@ -23,4 +29,8 @@
   border-radius: 10px;
   color: var(--color-text);
   font-weight: 600;
+}
+
+.inventory-product-table-container {
+  overflow-y: auto;
 }
