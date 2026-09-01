@@ -8,16 +8,20 @@ function InventoryProductTable() {
 
   return (
     <>
-      <div>
+      <div className="inventory-category-controls">
         <button
+          className={`inventory-category-button${
+            selectedCategory === 'All Categories' ? ' active' : ''
+          }`}
           onClick={() => setSelectedCategory('All Categories')}
         >
-          All Categories
+          All
         </button>
 
         {Object.keys(productGroups).map((category) => (
           <button
             key={category}
+            className="inventory-category-button"
             onClick={() => setSelectedCategory(category)}
           >
             {category}
@@ -25,7 +29,7 @@ function InventoryProductTable() {
         ))}
       </div>
 
-      <table>
+      <table className="inventory-product-table">
         <thead>
           <tr>
             <th scope="col">Products</th>
@@ -45,14 +49,16 @@ function InventoryProductTable() {
             )
             .map((category) => (
               <Fragment key={category}>
-                <tr>
+                <tr className="inventory-category-row">
                   <td colSpan={5}>{category}</td>
                 </tr>
 
                 {defaultProducts
                   .filter((product) => product.category === category)
                   .map((product) => (
-                    <tr key={product.name}>
+                    <tr key={product.name}
+                        className="inventory-product-row"
+                    >
                       <td>{product.name}</td>
                       <td>0</td>
                       <td>0</td>
