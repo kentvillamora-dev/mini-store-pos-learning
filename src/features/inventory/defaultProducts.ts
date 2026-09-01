@@ -783,47 +783,47 @@ export const defaultProducts: AnyProduct[] = [
   },
   {
     name: 'Fortune',
-    category: 'Miscellaneous',
+    category: 'Others',
     subcategory: 'Cigarettes'
   },
   {
     name: 'Marlboro Gold',
-    category: 'Miscellaneous',
+    category: 'Others',
     subcategory: 'Cigarettes'
   },
   {
     name: 'Marlboro Red',
-    category: 'Miscellaneous',
+    category: 'Others',
     subcategory: 'Cigarettes'
   },
   {
     name: 'Mighty',
-    category: 'Miscellaneous',
+    category: 'Others',
     subcategory: 'Cigarettes'
   },
   {
     name: 'Philip Morris',
-    category: 'Miscellaneous',
+    category: 'Others',
     subcategory: 'Cigarettes'
   },
   {
     name: 'Winston',
-    category: 'Miscellaneous',
+    category: 'Others',
     subcategory: 'Cigarettes'
   },
   {
     name: 'Baygon Katol',
-    category: 'Miscellaneous',
+    category: 'Others',
     subcategory: 'Other Items'
   },
   {
     name: 'Candle',
-    category: 'Miscellaneous',
+    category: 'Others',
     subcategory: 'Other Items'
   },
   {
     name: 'Matchbox',
-    category: 'Miscellaneous',
+    category: 'Others',
     subcategory: 'Other Items'
   }
 ]

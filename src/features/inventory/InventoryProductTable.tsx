@@ -27,6 +27,12 @@ function InventoryProductTable() {
             {category}
           </button>
         ))}
+
+        <input
+          className="inventory-search"
+          type="search"
+          placeholder="Search..."
+        />
       </div>
 
       <table className="inventory-product-table">
