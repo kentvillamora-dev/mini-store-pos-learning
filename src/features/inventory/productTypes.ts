@@ -53,7 +53,7 @@ export const productGroups = {
     'Personal Hygiene',
     'Other Care Items'
   ],
-  'Miscellaneous': [
+  'Others': [
     'Cigarettes',
     'Other Items'
   ]
