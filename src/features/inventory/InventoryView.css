@@ -1,0 +1,9 @@
+.inventory-category-controls {
+  display: flex;
+  gap: 1px;
+}
+
+.inventory-category-button {
+  min-height: 30px;
+  flex: 1;
+}

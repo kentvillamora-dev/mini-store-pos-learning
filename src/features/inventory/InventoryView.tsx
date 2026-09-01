@@ -1,3 +1,4 @@
+import './InventoryView.css'
 import InventoryProductTable from './InventoryProductTable'
 
 

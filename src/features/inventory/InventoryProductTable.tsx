@@ -10,9 +10,8 @@ function InventoryProductTable() {
     <>
       <div className="inventory-category-controls">
         <button
-          className={`inventory-category-button${
-            selectedCategory === 'All Categories' ? ' active' : ''
-          }`}
+          className={`inventory-category-button
+            ${selectedCategory === 'All Categories' ? ' active' : ''}`}
           onClick={() => setSelectedCategory('All Categories')}
         >
           All
@@ -21,7 +20,8 @@ function InventoryProductTable() {
         {Object.keys(productGroups).map((category) => (
           <button
             key={category}
-            className="inventory-category-button"
+            className={`inventory-category-button
+              ${selectedCategory === category ? ' active' : ''}`}
             onClick={() => setSelectedCategory(category)}
           >
             {category}
@@ -56,8 +56,9 @@ function InventoryProductTable() {
                 {defaultProducts
                   .filter((product) => product.category === category)
                   .map((product) => (
-                    <tr key={product.name}
-                        className="inventory-product-row"
+                    <tr
+                      key={product.name}
+                      className="inventory-product-row"
                     >
                       <td>{product.name}</td>
                       <td>0</td>
