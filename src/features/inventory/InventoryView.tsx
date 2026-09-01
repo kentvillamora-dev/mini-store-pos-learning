@@ -12,8 +12,6 @@ function InventoryView() {
       <section>
         Place holder section area
       </section>
-
-      Placeholder text to indicate area outside of sections
     </>
   )
 }
