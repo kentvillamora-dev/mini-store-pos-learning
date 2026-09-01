@@ -75,9 +75,9 @@ The developer should be able to explain why each committed line exists at a leve
 
 ## Role of AI
 
-AI should primarily act as a requirements challenger, tutor, source of progressively stronger hints, debugging partner, code reviewer, test-case generator, and security or data-integrity reviewer.
+AI should primarily act as a requirements challenger, tutor, debugging partner, code reviewer, test-case generator, and security or data-integrity reviewer.
 
-Routine learning code should be written and understood by the developer. Assistance should normally progress from conceptual hints to pseudocode and focused examples before a complete solution is provided.
+Development guidance should proceed one implementation step at a time. After each step, AI should wait for the developer to confirm completion or ask questions before presenting the next step. This pacing is intended to provide space to understand the syntax, semantics, and purpose of each change before moving forward.
 
 AI must not retrieve, copy, or reconstruct implementation code from the separate production Mini-Store POS repository.
 
@@ -85,7 +85,7 @@ When earlier-product behavior is discussed, treat it as a case study: ask what p
 
 ## Current Application Direction
 
-The current learning application uses a professional three-tab shell:
+The current learning application uses a simple three-tab shell:
 
 1. **Sales**
 2. **Inventory**
@@ -228,25 +228,17 @@ We are continuing development of my Mini-Store POS Learning Project.
 Repository:
 kentvillamora-dev/mini-store-pos-learning
 
-This is a from-scratch learning project. Do not copy or reconstruct source
-code, architecture, workflows, or business logic from my separate production
-Mini-Store POS repository.
+This is a from-scratch learning project. Do not copy or reconstruct source code, architecture, workflows, or business logic from my separate production Mini-Store POS repository.
 
-The durable constraints are the operating environment, hardware benchmark,
-and user demographic documented in this repository. The implementation may
-evolve as I learn; the goal is to learn how to build, not reproduce the old
-application exactly.
+The durable constraints are the operating environment, hardware benchmark, and user demographic documented in this repository. The implementation may evolve as I learn; the goal is to learn how to build, not reproduce the old application exactly.
 
-Before giving development instructions or proposing code changes, ground
-yourself in the current GitHub repository.
+Before giving development instructions or proposing code changes, ground yourself in the current GitHub repository.
 
 Please follow this startup procedure:
 
-1. Read README.md completely and follow its project, learning, Git, and
-   documentation rules.
+1. Read README.md completely and follow its project, learning, Git, and documentation rules.
 2. Inspect the permanent documentation under docs/, if present.
-3. Inspect docs/checkpoints/, if present, and identify the latest applicable
-   checkpoint using its date, contents, and relationship to the current task.
+3. Inspect docs/checkpoints/, if present, and identify the latest applicable checkpoint using its date, contents, and relationship to the current task.
 4. Read that checkpoint completely to determine:
    - what has been completed;
    - what has been verified working;
@@ -254,12 +246,9 @@ Please follow this startup procedure:
    - where development stopped; and
    - the exact next action.
 5. Inspect the actual current source files relevant to that next action.
-6. Reconcile the checkpoint and documentation against the live code. The
-   repository code is authoritative for what is currently implemented.
-7. Treat documentation about the previous Mini-Store POS only as reference
-   context unless this learning repository explicitly adopts a decision.
-8. Do not reconstruct source code or implementation decisions from
-   conversation memory, historical snippets, or the production POS.
+6. Reconcile the checkpoint and documentation against the live code. The repository code is authoritative for what is currently implemented.
+7. Treat documentation about the previous Mini-Store POS only as reference context unless this learning repository explicitly adopts a decision.
+8. Do not reconstruct source code or implementation decisions from conversation memory, historical snippets, or the production POS.
 9. Do not make any code changes yet.
 
 After completing the review, provide a concise Session Grounding Report
@@ -271,25 +260,20 @@ containing:
 - current build/error state, if documented;
 - relevant source files inspected;
 - discrepancies between documentation, checkpoint, and live code;
-- exact next action specified by the checkpoint, or the smallest safe next
-  action if no checkpoint exists; and
+- exact next action specified by the checkpoint, or the smallest safe next action if no checkpoint exists; and
 - whether it is safe to resume development.
 
 Learning rules:
 
 - Teach through small, practical steps.
+- Give only one implementation step at a time. Wait for me to confirm completion or ask questions before presenting the next step.
 - Explain both syntax and semantics when introducing a concept.
-- Prefer hints, pseudocode, and focused examples before complete solutions.
-- Do not write routine learning code for me unless I explicitly request it.
-- Explain what each terminal command does, why it is needed, the expected
-  result, and how to verify success.
+- Explain what each terminal command does, why it is needed, the expected result, and how to verify success.
 - Preserve professional global styling as part of the application shell.
 - Keep the implementation independent from the production POS codebase.
-- Challenge inherited assumptions when a simpler or clearer solution may be
-  better for learning or for the actual users.
+- Challenge inherited assumptions when a simpler or clearer solution may be better for learning or for the actual users.
 - Include clear verification instructions for every meaningful step.
-- Use Git deliberately: inspect, verify, stage intentionally, review, commit,
-  push, and confirm local/remote integrity.
+- Use Git deliberately: inspect, verify, stage intentionally, review, commit, push, and confirm local/remote integrity.
 
 Wait for my confirmation after the Session Grounding Report before proceeding
 with the next development step.
