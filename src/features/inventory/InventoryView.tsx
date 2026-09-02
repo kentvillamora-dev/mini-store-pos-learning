@@ -1,15 +1,22 @@
 import './InventoryView.css'
-import InventoryProductTable from './InventoryProductTable'
-
 
 function InventoryView() {
   return (
     <>
-      <section>
-        <InventoryProductTable />
+      <div className='inventory-primary-controls'>
+        Inventory Primary Controls
+      </div>
+
+      <div className='inventory-auxiliary-controls'>
+        Inventory Auxiliary Controls
+      </div>
+
+      <section className='product-table-area'>
+        Product Table Area
       </section>
     </>
   )
 }
 
 export default InventoryView
+

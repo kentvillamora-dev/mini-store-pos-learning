@@ -1,20 +1,20 @@
 function RecordsView() {
   return (
     <>
-      <section>
-        This will occupy Line-of-Credit records
-      </section>
+      <div className='records-primary-controls'>
+        Records Primary Controls
+      </div>
 
-      <section>
-        This will occupy most recent sale transactions
-      </section>
+      <div className='records-auxiliary-controls'>
+        Records Auxiliary Controls
+      </div>
 
-      <section>
-        This will occupy most recent procurement transactions
+      <section className='product-table-area'>
+        Records Ledger Area
       </section>
-      Placeholder text
     </>
   )
 }
 
 export default RecordsView
+

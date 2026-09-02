@@ -1,14 +1,21 @@
 function SalesView() {
   return (
     <>
-      <section>
-        This will occupy 2/3 of the parent div
+      <div className='sales-primary-controls'>
+        Sales Primary Controls
+      </div>
+
+      <div className='sales-auxiliary-controls'>
+        Sales Auxiliary Controls
+      </div>
+
+      <section className='product-selection-area'>
+        Product Selection Area
       </section>
 
-      <section>
-        This will occupy 1/3 of the parent div
+      <section className='checkout-cart-area'>
+        Checkout Cart Area
       </section>
-      Outside of 2 sections but inside main
     </>
   )
 }

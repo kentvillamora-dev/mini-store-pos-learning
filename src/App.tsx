@@ -9,28 +9,34 @@ function App() {
 
   return (
     <>
-      <nav>
-        <button
-          onClick={() => setActiveTab('Sales')}
-          className={activeTab === 'Sales' ? 'active' : ''}
-        >
-          Sales
-        </button>
+      <header>
+        <nav>
+          <button
+            onClick={() => setActiveTab('Sales')}
+            className={activeTab === 'Sales' ? 'active' : ''}
+          >
+            Sales
+          </button>
 
-        <button
-          onClick={() => setActiveTab('Inventory')}
-          className={activeTab === 'Inventory' ? 'active' : ''}
-        >
-          Inventory
-        </button>
-        
-        <button
-          onClick={() => setActiveTab('Records')}
-          className={activeTab === 'Records' ? 'active' : ''}
-        >
-          Records
-        </button>
-      </nav>
+          <button
+            onClick={() => setActiveTab('Inventory')}
+            className={activeTab === 'Inventory' ? 'active' : ''}
+          >
+            Inventory
+          </button>
+          
+          <button
+            onClick={() => setActiveTab('Records')}
+            className={activeTab === 'Records' ? 'active' : ''}
+          >
+            Records
+          </button>
+        </nav>
+
+        <div className='auxillary-information-box'>
+          Auxiliary Information
+        </div>
+      </header>
 
       <main>
         {activeTab === 'Sales' && <SalesView />}
