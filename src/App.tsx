@@ -33,8 +33,9 @@ function App() {
           </button>
         </nav>
 
-        <div className='auxillary-information-box'>
-          Auxiliary Information
+        <div className='auxiliary-information-box'>
+          <div>Search Bar Placehholder</div>
+          <div>Sync Status</div>
         </div>
       </header>
 

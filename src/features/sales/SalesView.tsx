@@ -1,20 +1,21 @@
 function SalesView() {
   return (
     <>
-      <div className='sales-primary-controls'>
+      <div className='primary-controls-area'>
         Sales Primary Controls
       </div>
 
-      <div className='sales-auxiliary-controls'>
+      <div className='auxiliary-controls-area'>
         Sales Auxiliary Controls
       </div>
 
-      <section className='product-selection-area'>
-        Product Selection Area
-      </section>
-
-      <section className='checkout-cart-area'>
-        Checkout Cart Area
+      <section>
+        <div className='sales-product-selection'>
+          Product Selection Area
+        </div>
+        <div className='sales-checkout-cart'>
+          Checkout Cart Area
+        </div>
       </section>
     </>
   )

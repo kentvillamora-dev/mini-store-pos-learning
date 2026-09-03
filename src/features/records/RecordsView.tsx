@@ -1,15 +1,15 @@
 function RecordsView() {
   return (
     <>
-      <div className='records-primary-controls'>
+      <div className='primary-controls-area'>
         Records Primary Controls
       </div>
 
-      <div className='records-auxiliary-controls'>
+      <div className='auxiliary-controls-area'>
         Records Auxiliary Controls
       </div>
 
-      <section className='product-table-area'>
+      <section>
         Records Ledger Area
       </section>
     </>

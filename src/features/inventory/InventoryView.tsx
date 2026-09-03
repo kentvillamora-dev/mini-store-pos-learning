@@ -3,15 +3,15 @@ import './InventoryView.css'
 function InventoryView() {
   return (
     <>
-      <div className='inventory-primary-controls'>
+      <div className='primary-controls-area'>
         Inventory Primary Controls
       </div>
 
-      <div className='inventory-auxiliary-controls'>
+      <div className='auxiliary-controls-area'>
         Inventory Auxiliary Controls
       </div>
 
-      <section className='product-table-area'>
+      <section>
         Product Table Area
       </section>
     </>
