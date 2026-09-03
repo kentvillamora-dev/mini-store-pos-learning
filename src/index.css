@@ -26,7 +26,28 @@ body,
 }
 
 header {
+  display: flex;
   background: var(--color-background)
+}
+
+header > nav {
+  flex: 1;
+
+  display: flex;
+}
+
+nav > button {
+  flex: 1;
+}
+
+.auxiliary-information-box {
+  flex: 2;
+
+  display:flex;
+}
+
+.search-bar-portal {
+  flex: 1;
 }
 
 main {
@@ -41,6 +62,14 @@ main > section {
   flex: 1;
 
   display:flex;
+}
+
+.sales-product-selection {
+    flex: 2;
+}
+
+.sales-checkout-cart {
+    flex: 1;
 }
 
 

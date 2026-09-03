@@ -34,8 +34,12 @@ function App() {
         </nav>
 
         <div className='auxiliary-information-box'>
-          <div>Search Bar Placehholder</div>
-          <div>Sync Status</div>
+          <div className='search-bar-portal'>
+            Search Bar Placehholder
+            </div>
+          <div className='sync-status-box'>
+            Sync Status
+          </div>
         </div>
       </header>
 
