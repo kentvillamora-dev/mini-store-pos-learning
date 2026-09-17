@@ -275,8 +275,7 @@ Learning rules:
 - Include clear verification instructions for every meaningful step.
 - Use Git deliberately: inspect, verify, stage intentionally, review, commit, push, and confirm local/remote integrity.
 
-Wait for my confirmation after the Session Grounding Report before proceeding
-with the next development step.
+Wait for my confirmation after the Session Grounding Report before proceeding with the next development step.
 ~~~
 
 ## Guiding Principle
