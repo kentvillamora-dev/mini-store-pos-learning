@@ -35,10 +35,11 @@ function App() {
 
         <div className='auxiliary-information-box'>
           <div className='search-bar-portal'>
-            Search Bar Placehholder
+            Search Bar Placeholder
             </div>
           <div className='sync-status-box'>
-            Sync Status
+            <div>Online | 2 pending sync</div>
+            <div>v2026.09.17_0ff2654</div>
           </div>
         </div>
       </header>

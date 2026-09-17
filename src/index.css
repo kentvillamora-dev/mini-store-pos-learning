@@ -64,6 +64,7 @@ main > section {
   display:flex;
 }
 
+  /* This will be moved to appropriate CSS file later */
 .sales-product-selection {
     flex: 2;
 }
