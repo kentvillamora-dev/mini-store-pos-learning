@@ -1,3 +1,4 @@
+import './InventoryView.css'
 import { defaultProducts } from './defaultProducts'
 import InventoryTable from './InventoryTable'
 import { useState } from 'react'
@@ -28,7 +29,19 @@ function InventoryView() {
       </div>
 
       <div className='auxiliary-controls-area'>
-        Inventory Auxiliary Controls
+        <div className='product-subcategory-filters'>
+          Product Subcategory Filters
+        </div>
+
+        <div className='low-stock-filters'>
+          <button>All</button>
+          <button>Low</button>
+          <button>Out</button>
+        </div>
+
+        <div className='add-product-area'>
+          <button>Add Product</button>
+        </div>
       </div>
 
       <section>
