@@ -1,3 +1,4 @@
+import './App.css'
 import { useState } from 'react'
 import SalesView from './components/sales/SalesView'
 import InventoryView from './components/inventory/InventoryView'
