@@ -58,19 +58,3 @@ export const productGroups = {
     'Other Items'
   ]
 } as const
-
-export type ProductCategory =
-  keyof (typeof productGroups)
-
-export type ProductSubCategoryFor<Category extends ProductCategory> =
-  (typeof productGroups)[Category][number]
-
-export type Product<Category extends ProductCategory> = {
-  name: string,
-  category: Category,
-  subcategory: ProductSubCategoryFor<Category>
-}
-
-export type AnyProduct = {
-  [Category in ProductCategory]: Product<Category>
-}[ProductCategory]

@@ -1,6 +1,4 @@
-import type { AnyProduct } from './productTypes'
-
-export const defaultProducts: AnyProduct[] = [
+export const defaultProducts= [
   {
     name: 'Choc Nut',
     category: 'Snacks',
