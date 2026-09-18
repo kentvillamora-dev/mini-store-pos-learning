@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import SalesView from './features/sales/SalesView'
-import InventoryView from './features/inventory/InventoryView'
-import RecordsView from './features/records/RecordsView'
+import SalesView from './components/sales/SalesView'
+import InventoryView from './components/inventory/InventoryView'
+import RecordsView from './components/records/RecordsView'
 
 function App() {
   const [activeTab, setActiveTab] =

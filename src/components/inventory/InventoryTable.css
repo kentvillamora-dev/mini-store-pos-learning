@@ -12,6 +12,9 @@ td {
 }
 
 th {
+  position: sticky;
+  top: 0;
+  
   background: var(--color-header);
   color: var(--color-accent-contrast);
 }
@@ -47,4 +50,10 @@ td:first-child {
   color: var(--color-accent-contrast);
   font: inherit;
   cursor: pointer;
+}
+
+.inventory-table-container {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 }
