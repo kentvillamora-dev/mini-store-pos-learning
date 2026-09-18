@@ -12,7 +12,21 @@ function InventoryView() {
       </div>
 
       <section>
-        Product Table Area
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Stock</th>
+              <th>Unit Cost</th>
+              <th>Retail Price</th>
+              <th>Profit Margin</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          </tbody>
+        </table>
       </section>
     </>
   )
