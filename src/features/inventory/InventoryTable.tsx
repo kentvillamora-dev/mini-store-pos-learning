@@ -1,3 +1,4 @@
+import './InventoryTable.css'
 import { defaultProducts } from './defaultProducts'
 
 function InventoryTable() {

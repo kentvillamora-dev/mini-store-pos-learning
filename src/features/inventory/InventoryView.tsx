@@ -1,4 +1,3 @@
-import './InventoryView.css'
 import InventoryTable from './InventoryTable'
 
 function InventoryView() {
