@@ -1,0 +1,41 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th,
+td {
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  text-align: center;
+}
+
+th {
+  background: var(--color-header);
+  color: var(--color-accent-contrast);
+}
+
+th:first-child {
+    width: 30%;
+}
+
+th:last-child {
+    width: 20%;
+}
+
+td {
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+td:first-child {
+  text-align: left;
+}
+
+.inventory-action-buttons {
+  display: flex;
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  border: 1px solid var(--color-border);
+}

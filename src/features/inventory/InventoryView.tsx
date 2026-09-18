@@ -1,4 +1,5 @@
 import './InventoryView.css'
+import { defaultProducts } from './defaultProducts'
 
 function InventoryView() {
   return (
@@ -25,6 +26,25 @@ function InventoryView() {
           </thead>
 
           <tbody>
+            {defaultProducts.map((product) => (
+              <tr key={product.name}>
+                <td>{product.name}</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>
+                  <div className='inventory-action-buttons'>
+                    <button>Restock</button>
+                    <button>Modify</button>
+                  </div>
+                </td>
+              </tr>
+            )
+
+            )
+
+            }
           </tbody>
         </table>
       </section>
