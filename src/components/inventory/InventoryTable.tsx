@@ -2,8 +2,14 @@ import './InventoryTable.css'
 import { defaultProducts } from './defaultProducts'
 import { Fragment } from 'react'
 
-function InventoryTable() {
+type InventoryTableProps = {
+  selectedCategory: string
+}
+
+function InventoryTable({ selectedCategory }: InventoryTableProps) {
   const categories = [...new Set(defaultProducts.map((product) => product.category))]
+
+  const displayedCategories = selectedCategory === 'All' ? categories : [selectedCategory]
 
   return (
     <div className='inventory-table-container'>
@@ -20,9 +26,9 @@ function InventoryTable() {
         </thead>
 
         <tbody>
-          {categories.map((category) => (
+          {displayedCategories.map((category) => (
             <Fragment key={category}>
-              <tr>
+              <tr className='inventory-category-row'>
                 <td colSpan={6}>{category}</td>
               </tr>
 

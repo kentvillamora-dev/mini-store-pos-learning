@@ -2,7 +2,10 @@ function RecordsView() {
   return (
     <>
       <div className='primary-controls-area'>
-        Records Primary Controls
+        <button>Line of Credit</button>
+        <button>Sales Transactions</button>
+        <button>Restock Entries</button>
+        <button>Edit Logs</button>
       </div>
 
       <div className='auxiliary-controls-area'>
