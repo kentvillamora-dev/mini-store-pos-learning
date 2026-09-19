@@ -2,27 +2,31 @@ function App() {
   return (
     <>
       <header>
-        <nav>
+        <nav className="navigation-buttons-area">
           Navigation Buttons
         </nav>
 
-        <div>
-          <div>
+        <div className="auxiliary-information-area">
+          <div className="search-bar-area">
             Search Portal
           </div>
 
-          <aside>
-            <div>Sync Status</div>
-            <div>Version ID</div>
+          <aside className="sync-version-area">
+            <div className="sync-status-box">
+              Sync Status
+            </div>
+            <div className="version-id-box">
+              Version ID
+            </div>
           </aside>
         </div>
       </header>
 
-      <div>
+      <div className="primary-controls-area">
         Primary Controls
       </div>
 
-      <div>
+      <div className="auxiliary-controls-area">
         Auxiliary Controls
       </div>
 
