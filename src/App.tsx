@@ -12,12 +12,8 @@ function App() {
           </div>
 
           <aside className="sync-version-area">
-            <div className="sync-status-box">
-              Sync Status
-            </div>
-            <div className="version-id-box">
-              Version ID
-            </div>
+            <div>Sync Status</div>
+            <div>Version ID</div>
           </aside>
         </div>
       </header>
