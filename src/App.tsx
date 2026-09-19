@@ -1,9 +1,17 @@
+import { useState } from 'react'
+import NavigationButtons from './components/navigation/NavigationButtons'
+
 function App() {
+  const [activeView, setActiveView] = useState('Sales')
+
   return (
     <>
       <header>
         <nav className="navigation-buttons-area">
-          Navigation Buttons
+          <NavigationButtons
+            activeView={activeView}
+            setActiveView={setActiveView}
+          />
         </nav>
 
         <div className="auxiliary-information-area">
@@ -27,7 +35,7 @@ function App() {
       </div>
 
       <main>
-        Main Content
+        Active View: {activeView}
       </main>
     </>
   )

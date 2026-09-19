@@ -6,7 +6,7 @@
   --color-border: #d4d4d4;
 
   /* Accent */
-  --color-accent: #333333;
+  --color-accent: #000000;
   --color-accent-hover: #262626;
   --color-accent-active: #171717;
   --color-accent-contrast: #ffffff;
@@ -47,7 +47,7 @@ main {
   border: 1px solid var(--color-border);
 }
 
-/* ## HEADER FORMATTING ## */
+/* ## HEADER SIZE FORMATTING ## */
 header {
   height: 7%;
 
@@ -56,6 +56,8 @@ header {
 
 .navigation-buttons-area {
   flex: 1;
+
+  padding: 2px;
 }
 
 .auxiliary-information-area {
@@ -80,7 +82,7 @@ header {
 }
 
 
-/* ## CONTROLS & MAIN FORMATTING ## */
+/* ## CONTROLS & MAIN SIZE FORMATTING ## */
 .primary-controls-area {
   height: 7%;
 }
