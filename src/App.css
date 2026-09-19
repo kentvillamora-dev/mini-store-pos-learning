@@ -1,0 +1,5 @@
+function App() {
+  return <div>Mini Store POS</div>
+}
+
+export default App
